@@ -9,22 +9,31 @@ pipeline {
         }
         stage('Restore') {
             steps {
-                bat 'dotnet restore'
+                dir('api') {
+                    bat 'dotnet restore api.csproj'
+                }
             }
         }
         stage('Build') {
             steps {
-                bat 'dotnet build --configuration Release'
+                 dir('api') {
+                    bat 'dotnet build --configuration Release'
+                 }
+              
             }
         }
         stage('Publish') {
             steps {
+                 dir('api') {
                 bat 'dotnet publish -c Release -o published'
+                 }
             }
         }
         stage('Deploy') {
             steps {
+                 dir('api') {
                 bat 'xcopy /E /Y /I published C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\api'
+                 }
             }
         }
     }
