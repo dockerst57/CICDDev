@@ -16,18 +16,18 @@
         }
         stage('Restore') {
             steps {
-                bat 'dotnet restore'
+                sh 'dotnet restore'
             }
         }
         stage('Build') {
             steps {
-                bat 'dotnet build --configuration Release'
+                sh 'dotnet build --configuration Release'
             }
         }
        
         stage('Publish') {
             steps {
-                bat 'dotnet publish --configuration Release --output ./publish'
+                sh 'dotnet publish --configuration Release --output ./publish'
             }
         }
     }
