@@ -1,0 +1,67 @@
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# Build files
+# bin/
+obj/
+out/
+Debug/
+Release/
+*.exe
+*.dll
+*.pdb
+*.log
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
+.nuget/
+csproj.nuget.g.props
+csproj.nuget.g.targets
+
+# Rider / JetBrains files
+.idea/
+*.sln.iml
+
+# Resharper files
+_ReSharper.Caches/
+*.DotSettings.user
+
+# ASP.NET Core
+appsettings.json
+appsettings.*.json
+secrets.json
+logs/
+wwwroot/node_modules/
+
+# Docker files
+.dockerignore
+docker-compose.override.yml
+
+# Entity Framework Migrations
+Migrations/
+
+# Node.js files (if using frontend with .NET)
+node_modules/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# Other IDE files
+*.code-workspace
+.vscode/
+
+# Temporary files
+*.tmp
+*.cache
+*.swp
+*.DS_Store
+Thumbs.db
