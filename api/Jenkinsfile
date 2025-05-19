@@ -1,9 +1,12 @@
 pipeline {
     agent any
-    tools {
-        dotnet 'dotnet-9'
-    }
+ 
     stages {
+        stage('CheckVersion') {
+            steps {
+                bat 'dotnet --version'
+            }
+        }
         stage('Restore') {
             steps {
                 bat 'dotnet restore'
