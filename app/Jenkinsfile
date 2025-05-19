@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'NodeJS_24'
+    }
+    stages {
+        stage('Install') {
+            steps {
+                bat 'npm install'
+            }
+        }
+        stage('Build') {
+            steps {
+                bat 'npm run build'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                bat 'xcopy /E /Y /I .next C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\.next'
+                bat 'xcopy /E /Y /I public C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\public'
+                bat 'xcopy /Y next.config.js C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\'
+            }
+        }
+    }
+}

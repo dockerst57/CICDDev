@@ -1,13 +1,9 @@
 pipeline {
     agent any
-
+    tools {
+        dotnet 'dotnet-9'
+    }
     stages {
-        
-        stage('Checkout') {
-            steps {
-                git credentialsId: 'github-credentials', url: 'https://github.com/dockerst57/CICDDev.git',branch:'main'
-            }
-        }
         stage('Restore') {
             steps {
                 bat 'dotnet restore'
@@ -18,10 +14,14 @@ pipeline {
                 bat 'dotnet build --configuration Release'
             }
         }
-       
         stage('Publish') {
             steps {
-                bat 'dotnet publish --configuration Release --output ./publish'
+                bat 'dotnet publish -c Release -o published'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                bat 'xcopy /E /Y /I published C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\api'
             }
         }
     }
