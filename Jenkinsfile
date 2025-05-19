@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-         stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+        //  stage('Clean Workspace') {
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
         stage('Checkout') {
             steps {
                 git credentialsId: 'github-credentials', url: 'https://github.com/dockerst57/CICDDev.git',branch:'main'
