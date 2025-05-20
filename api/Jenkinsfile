@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy') { // This stage is for deploying the published files
             steps {
                  dir('api') { // Navigate to the api directory
-                    bat 'xcopy /E /Y /I published C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\api' // Copy the published files
+                    bat 'xcopy /E /Y /I published C:\\Websites\\BillingWeb\\CICD\\BillingApp\\api' // Copy the published files
                  }
             }
         }
