@@ -10,22 +10,27 @@ export default function LoginPage() {
     const router = useRouter()
 
     const handleLogin = async () => {
-        try {
-            const res = await axios.post('https://softthaiapp.com/Billing-api/api/auth/login', {
-                username,
-                password
-            })
+    try {
+        const res = await axios.post('https://softthaiapp.com/Billing-api/api/auth/login', {
+            username,
+            password
+        });
 
-            const token = res.data.token
-            localStorage.setItem('token', token)
+        const token = res.data.token;
+        localStorage.setItem('token', token);
 
-            router.push('/dashboard')
-        } catch (err: any) {
+        router.push('/dashboard');
+    } catch (err: unknown) {
+        setError('Username or password is incorrect');
 
-            setError('Username or password is incorrect');
-            console.error('เกิดข้อผิดพลาด:', err);
+        if (err instanceof Error) {
+            console.error('เกิดข้อผิดพลาด:', err.message);
+        } else {
+            console.error('เกิดข้อผิดพลาด (unknown):', err);
         }
     }
+};
+
 
     return (
         <div className="p-4 max-w-md mx-auto">
