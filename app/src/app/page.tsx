@@ -1,9 +1,9 @@
 import Image from "next/image";
-import logo from '../public/assets/images/next.svg'
-import  vercel  from "../public/assets/images/vercel.svg";
-import  file  from "../public/assets/images/file.svg";
-import  window  from "../public/assets/images/window.svg";
-import  globe  from "../public/assets/images/globe.svg";
+import logo from '@/assets/images/next.svg'
+import  vercel  from "@/assets/images/vercel.svg";
+import  file  from "@/assets/images/file.svg";
+import  window  from "@/assets/images/window.svg";
+import  globe  from "@/assets/images/globe.svg";
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
