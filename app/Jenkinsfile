@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('app') {
-                    bat 'npm run build && npx next export'
+                    bat 'npm run build'
                 }
             }
         }
