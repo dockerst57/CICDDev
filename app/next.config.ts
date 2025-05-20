@@ -1,18 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
- reactStrictMode: false,
-   output: 'export',
-   basePath: "/Billing-app",
-   trailingSlash: true,
+ reactStrictMode: false, // Enable React's Strict Mode
+   output: 'export', // Use static export
+   basePath: "/Billing-app", // Set the base path for the app
+   trailingSlash: true, // Add trailing slashes to URLs
     images: {
-       unoptimized: true,
+       unoptimized: true, // Disable Next.js image optimization
       remotePatterns: [
         {
-          protocol: "https",
-          hostname: "softthaiapp.com",
-          port: "",
-          pathname: "**",
+          protocol: "https", // Use HTTPS protocol
+          hostname: "softthaiapp.com", // Allow images from this hostname
+          port: "", // No specific port
+          pathname: "**", // Allow all paths
         },
       ],
     },

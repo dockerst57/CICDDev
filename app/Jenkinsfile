@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent any // Use any available agent
      tools {
         nodejs 'nodejs24.02'  // Use your configured Node.js version
     }
@@ -7,25 +7,25 @@ pipeline {
         stage('Install') {
             steps {
                 dir('app') { // or whatever folder contains package.json
-                    bat 'npm install'
+                    bat 'npm install' // or 'npm ci' for a clean install
                 }
             }
         }
-        stage('Build') {
+        stage('Build') { // This stage is for building the application
             steps {
-                dir('app') {
-                    bat 'npm run build'
+                dir('app') { // or whatever folder contains your build script
+                    bat 'npm run build' // or 'npm run build:prod' if you have a specific script for production
                 }
             }
         }
-        stage('Deploy') {
+        stage('Deploy') { // This stage is for deploying the built files
             steps {
                  dir('app') {
-                    bat 'xcopy /E /Y /I .next C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\.next'
-                    bat 'xcopy /E /Y /I public C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\public'
-                    bat 'xcopy /Y "next.config.ts" "C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\"'
-                    bat 'xcopy /E /Y /I out\\* C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\'
-            }
+                    bat 'xcopy /E /Y /I .next C:\\Websites\\BillingWeb\\CICD\\BillingApp\\app\\.next' // Copy the built files
+                    bat 'xcopy /E /Y /I public C:\\Websites\\BillingWeb\\CICD\\BillingApp\\app\\public' // Copy the public files
+                    bat 'xcopy /Y "next.config.ts" "C:\\Websites\\BillingWeb\\CICD\\BillingApp\\app\\"' // Copy the next.config.ts file
+                    bat 'xcopy /E /Y /I out\\* C:\\Websites\\BillingWeb\\CICD\\BillingApp\\app\\' // Copy the out directory
+                 }
             }
         }
     }

@@ -2,37 +2,37 @@ pipeline {
     agent any
  
     stages {
-        stage('CheckVersion') {
+        stage('CheckVersion') { // This stage is for checking the version of .NET SDK
             steps {
-                bat 'dotnet --version'
+                bat 'dotnet --version' // Check the version of .NET SDK
             }
         }
-        stage('Restore') {
+        stage('Restore') { // This stage is for restoring the .NET project dependencies
             steps {
-                dir('api') {
-                    bat 'dotnet restore api.csproj'
+                dir('api') { // Navigate to the api directory
+                    bat 'dotnet restore api.csproj' // Restore the .NET project dependencies
                 }
             }
         }
-        stage('Build') {
+        stage('Build') { // This stage is for building the .NET project
             steps {
-                 dir('api') {
-                    bat 'dotnet build --configuration Release'
+                 dir('api') { // Navigate to the api directory
+                    bat 'dotnet build --configuration Release' // Build the .NET project
                  }
               
             }
         }
-        stage('Publish') {
+        stage('Publish') { // This stage is for publishing the .NET project
             steps {
-                 dir('api') {
-                bat 'dotnet publish -c Release -o published'
+                 dir('api') { // Navigate to the api directory
+                    bat 'dotnet publish -c Release -o published' // Publish the .NET project
                  }
             }
         }
-        stage('Deploy') {
+        stage('Deploy') { // This stage is for deploying the published files
             steps {
-                 dir('api') {
-                bat 'xcopy /E /Y /I published C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\api'
+                 dir('api') { // Navigate to the api directory
+                    bat 'xcopy /E /Y /I published C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\api' // Copy the published files
                  }
             }
         }
