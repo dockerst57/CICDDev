@@ -1,16 +1,11 @@
 import Image from "next/image";
-import logo from '@/assets/images/next.svg'
-import  vercel  from "@/assets/images/vercel.svg";
-import  file  from "@/assets/images/file.svg";
-import  window  from "@/assets/images/window.svg";
-import  globe  from "@/assets/images/globe.svg";
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
-          src={logo}
+          src="/assets/images/next.svg"
           alt="Next.js logo"
           width={180}
           height={38}
@@ -38,7 +33,7 @@ export default function Home() {
           >
             <Image
               className="dark:invert"
-              src={vercel}
+              src="/assets/images/vercel.svg"
               alt="Vercel logomark"
               width={20}
               height={20}
@@ -64,7 +59,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src={file}
+            src={"/assets/images/file.svg"}
             alt="File icon"
             width={16}
             height={16}
@@ -79,7 +74,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src={window}
+            src={"/../public/assets/images/window.svg"}
             alt="Window icon"
             width={16}
             height={16}
@@ -94,7 +89,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src={globe}
+            src={"/../public/assets/images/globe.svg"}
             alt="Globe icon"
             width={16}
             height={16}
