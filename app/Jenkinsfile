@@ -24,7 +24,7 @@ pipeline {
                     bat 'xcopy /E /Y /I .next C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\.next'
                     bat 'xcopy /E /Y /I public C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\public'
                     bat 'xcopy /Y "next.config.ts" "C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\"'
-                    bat 'xcopy /E /Y /I out C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\'
+                    bat 'xcopy /E /Y /I out\\* C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\'
             }
             }
         }
