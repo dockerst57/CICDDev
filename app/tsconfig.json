@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noImplicitAny": false, // Allow implicit any types
+    "noImplicitAny": true, // Allow implicit any types
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
