@@ -23,7 +23,7 @@ pipeline {
                  dir('app') {
                     bat 'xcopy /E /Y /I .next C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\.next'
                     bat 'xcopy /E /Y /I public C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\public'
-                    bat 'xcopy /Y "C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\.next\\next.config.js" C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\'
+                    bat 'xcopy /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\NextTest_main\\app\\next.config.js" C:\\Websites\\BillingWeb\\azuredocker\\BillingApp\\app\\'
                  }
             }
         }
